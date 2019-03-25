@@ -5,11 +5,10 @@ This pepeline is inspired by [crazyhottommy](https://github.com/crazyhottommy/py
 
 
 generate workflow plot
-
+```bash
 snakemake --dag 2> /dev/null | dot -T png > workflow.png
-
+```
 the flow is as following
-
 ![](./workflow.png)
 
 ### dry run to test
