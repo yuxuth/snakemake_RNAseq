@@ -12,10 +12,10 @@ the flow is as following
 
 ![](./workflow.png)
 
-### dry run to test
+### run 
 
 ```bash
-## dry run
+## dry run first
 snakemake -np
 ```
 if no errors, preceed below.
