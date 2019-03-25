@@ -6,4 +6,8 @@ snakemake -j -np  99 --cluster '/Snakefile-sbatch.py'
 
 generate workflow plot
 
-snakemake --dag 2> /dev/null | dot -T png > ../../img/workflow_bysample.png
+snakemake --dag 2> /dev/null | dot -T png > workflow.png
+
+the flow is as following
+
+![](./workflow.png)
