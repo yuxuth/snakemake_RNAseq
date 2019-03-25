@@ -9,6 +9,7 @@ generate workflow plot
 snakemake --dag 2> /dev/null | dot -T png > workflow.png
 ```
 the flow is as following
+
 ![](./workflow.png)
 
 ### dry run to test
