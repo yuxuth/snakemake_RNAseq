@@ -15,7 +15,7 @@ the flow is as following
 ### run 
 
 ```bash
-## dry run first
+## try run first
 snakemake -np
 ```
 if no errors, preceed below.
