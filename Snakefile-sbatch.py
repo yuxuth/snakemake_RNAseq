@@ -45,7 +45,7 @@ class UndefinedJobRule(Exception):
 
 class SnakeJobSbatch(SnakeJob):
     # Change this to the path of the sbatch_job wrapper script
-    sbatch_job_path = "/scratch/06032/tg853315/snakemaker/snakemake-snakemake-tutorial-966f4bd988bb/sbatch_job"
+    sbatch_job_path = "./sbatch_job"
 
     def __init__(self, snakebashfile, dependencies=None):
         SnakeJob.__init__(self, snakebashfile, dependencies)
