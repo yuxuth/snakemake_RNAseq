@@ -20,5 +20,5 @@ snakemake -np
 ```
 if no errors, preceed below.
 ```bash
-snakemake -j -np  99 --cluster '/Snakefile-sbatch.py'
+snakemake -j  99 --cluster './Snakefile-sbatch.py'
 ```
