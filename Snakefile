@@ -2,7 +2,7 @@ shell.prefix("set -eo pipefail; echo BEGIN at $(date); ")
 shell.suffix("; exitstat=$?; echo END at $(date); echo exit status was $exitstat; exit $exitstat")
 
 configfile: "config.yaml"
-
+ 
 FILES = json.load(open(config['SAMPLES_JSON']))
 
 # CLUSTER = json.load(open(config['CLUSTER_JSON']))
