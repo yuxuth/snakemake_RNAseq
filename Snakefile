@@ -146,6 +146,7 @@ rule index_bam:
     message: "index_bam {input}: {threads} threads"
     shell:
         """
+        module load samtools
         samtools index {input} 2> {log}
         """
 
