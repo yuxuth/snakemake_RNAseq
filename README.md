@@ -2,8 +2,6 @@
 
 This pepeline is inspired by [crazyhottommy](https://github.com/crazyhottommy/pyflow-RNAseq).
 
-
-
 generate workflow plot
 ```bash
 snakemake --dag 2> /dev/null | dot -T png > workflow.png
