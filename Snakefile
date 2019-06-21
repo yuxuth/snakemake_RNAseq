@@ -26,13 +26,15 @@ ALL_SORTED_BAM = expand("05_sortBam/{sample}.sorted.bam", sample = SAMPLES)
 ALL_stringtie_gtf = expand("06_ballgown/{sample}/{sample}.stringtie.gtf", sample = SAMPLES)
 ALL_bw = expand("07_bigwig/{sample}_forward.bw", sample = SAMPLES)
 ALL_QC = ["08_multiQC/multiQC_log.html"]
+ball_grown = ['06_ballgown/gene_table.tsv']
 TARGETS.extend(ALL_BAM) ##append all list to 
 TARGETS.extend(ALL_SORTED_BAM)
 TARGETS.extend(ALL_stringtie_gtf)
 TARGETS.extend(ALL_FASTQC) ## check later
 TARGETS.extend(ALL_FASTQ)
 TARGETS.extend(ALL_QC)
-#TARGETS.extend(ALL_bw)
+TARGETS.extend(ball_grown)
+#TARGETS.extend(ALL_bw) ## change the setting to configure file later
 
 
 ## construct the target if the inputs are bams
@@ -159,7 +161,7 @@ rule stringtie_FPKM_caculation:
 	shell:
 		"""
 		# -p for paried-end, counting fragments rather reads
-		{stringtie} -e -B -p 8 -G {gtf} -o {output} {input}
+		{stringtie} -e -B -p {threads} -G {gtf} -o {output} {input}
 		"""
 ## add the bowgrow later
 
@@ -192,11 +194,13 @@ rule multiQC:
         """
 
 rule ballgown:
-    input: "06_ballgown/{sample}"
-    output: 'ballgown/SigDE.txt'
-    shell: """
+    input: 
+    	expand("06_ballgown/{sample}", sample = SAMPLES)
+    output: '06_ballgown/gene_table.tsv'
+    shell: 
+    	"""
         Rscript ballgown.R {input} {output}
-    """ 
+    	""" 
 
 rule update_bigwigs:
 	input : ALL_bw
