@@ -24,12 +24,12 @@ for root, dirs, files in os.walk(args.fastq_dir):
 		if file.endswith("fastq.gz"):
 			full_path = join(root, file)
 			#R1 will be forward reads, R2 will be reverse reads
-			m = re.search(r"(.*)_(L[0-9]{3})_(R[12])_[0-9]{3}.fastq.gz",file) ## get the sample lane
+			m = re.search(r"(.*)_(R[12])_[0-9]{3}.fastq.gz",file) ## get the sample lane
 			if m:
-				sample = m.group(1)
-				lane = m.group(2)
+				sample = m.group(1) 
+				#lane = m.group(2) ## no lane information
 				# R1 or R2 for forward and reverse read
-				reads = m.group(3)  
+				reads = m.group(2)  
 				FILES[sample][reads].append(full_path)
 
 # make sure R1 and R2 from different lanes are ordered in the same way
