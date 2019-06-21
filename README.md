@@ -1,4 +1,4 @@
-# snakemake_se_RNAseq
+# snakemake_PE_RNAseq
 
 This pepeline is inspired by [crazyhottommy](https://github.com/crazyhottommy/pyflow-RNAseq).
 
