@@ -1,20 +1,19 @@
 
 library(ballgown)
-
+library(magrittr)
 args <- commandArgs(trailingOnly = TRUE)
 
-sampleids = paste0(args[1:length(args)-1],collapse = ',' ) 
+sampleids = args[1:length(args)-1]
 output = args[length(args)]
-
+print(sampleids)
 ## generate the  expression table for each sample
-sampleids = '06_ballgown/test_BC-sham-ctr-19-02-14/'
 bg <-  ballgown(samples = sampleids , meas='FPKM')
 
 print('process sample data')
 
 print(sampleNames(bg))
 gene_expression = ballgown::gexpr(bg)
-gene_table = as.tibble(gene_expression)
+gene_table = tibble::as.tibble(gene_expression)
 gene_table$geneid = rownames(gene_expression)
 
 geneID = tibble::tibble(genename = ballgown::geneNames(bg) ,
