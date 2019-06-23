@@ -152,7 +152,7 @@ rule index_bam:
 
 rule stringtie_FPKM_caculation:
 	input: "05_sortBam/{sample}.sorted.bam"
-	output: "06_ballgown/{sample}/{sample}.stringtie.gtf",  "06_ballgown/{sample}"
+	output: "06_ballgown/{sample}/{sample}.stringtie.gtf", directory("06_ballgown/{sample}")
 	log: "00_log/{sample}_stringtie.log"
 	params:
 		jobname = "{sample}"
